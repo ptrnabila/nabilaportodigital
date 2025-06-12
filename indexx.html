@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tentang Saya - Putri Nabila</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* [CSS sama persis seperti yang kamu punya, tidak diubah] */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Merriweather', serif;
+    }
+
+    body {
+      background: linear-gradient(to bottom, #1b2d4e, #86c5e3);
+      color: #000;
+    }
+
+    nav {
+      background-color: #10214e;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    nav ul li a:hover {
+      color: #a7e2f1;
+    }
+
+    header {
+      position: relative;
+      background: url(image/background.jpg) no-repeat center center/cover;
+      height: 300px;
+    }
+
+    .profile-section {
+      display: flex;
+      align-items: center;
+      padding: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .profile-pic {
+      flex: 0 0 200px;
+      margin-right: 2rem;
+    }
+
+    .profile-pic img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 5px solid white;
+    }
+
+    .title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #10214e;
+    }
+
+    .title span {
+      color: #f3f0f0;
+    }
+
+    .box-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .info-box {
+      background: linear-gradient(to bottom right, #e6f6ff, #ffffff);
+      border-radius: 20px;
+      padding: 1.5rem;
+      width: 320px;
+      height: 360px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .info-box:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .typing-box {
+      white-space: pre-line;
+      overflow: hidden;
+      border-right: 2px solid transparent;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      background-color: #10214e;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Putri Nabila</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="indexx.html">About</a></li>
+      <li><a href="indexxx.html">Experience</a></li>
+      <li><a href="indexxxx.html">Skill</a></li>
+      <li><a href="indexxxxx.html">Certificate</a></li>
+      <li><a href="indexxxxxx.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header></header>
+
+  <section class="profile-section">
+    <div class="profile-pic">
+      <img src="image/nabila.jpg" alt="Foto Putri Nabila">
+    </div>
+    <div class="title">
+      Tentang <span>Saya!</span>
+    </div>
+  </section>
+
+  <section class="box-container">
+    <div class="info-box">
+      <div class="typing-box"></div>
+    </div>
+    <div class="info-box">
+      <div class="typing-box"></div>
+    </div>
+    <div class="info-box">
+      <div class="typing-box"></div>
+    </div>
+  </section>
+
+  <footer>
+    2025 Putri Nabila. All Rights Reserved
+  </footer>
+
+  <script>
+    const texts = [
+      `🖐 Saya Putri Nabila,
+
+lahir pada tanggal 3 Juni 2008 di Blitar, Indonesia. Di usia 17 tahun, saya adalah anak tunggal di keluarga saya dan saat ini menjadi siswa yang berdedikasi di program Teknik Komputer dan Jaringan (TKJ) di SMKN 1 Nglegok.`,
+
+      `🖐 Sejak saya diperkenalkan dengan dunia IT, saya merasa terpesona dengan cara kerja komputer, situs web, dan jaringan. Rasa ingin tahu ini telah mendorong saya untuk mempelajari berbagai bidang dalam teknologi — mulai dari merakit PC hingga mendesain situs web dan mengonfigurasi jaringan.`,
+
+      `🖐 Saya memiliki keterampilan dasar yang kuat dalam instalasi jaringan, perangkat keras komputer, dan pemrograman dasar. Selain pengetahuan teknis, saya juga menghargai kerja sama tim, komunikasi, dan pola pikir berkembang yang membantu saya beradaptasi dengan tantangan dan belajar dari setiap pengalaman.`
+    ];
+
+    const typingSound = new Audio("https://cdn.pixabay.com/download/audio/2022/03/15/audio_c6d57bde03.mp3?filename=keyboard-typing-1-99408.mp3");
+    typingSound.volume = 0.3;
+
+    const boxes = document.querySelectorAll(".typing-box");
+
+    function startTypingSequentially(index = 0) {
+      if (index >= boxes.length) return;
+
+      let i = 0;
+      function type() {
+        if (i < texts[index].length) {
+          boxes[index].textContent += texts[index].charAt(i);
+          if (texts[index].charAt(i) !== ' ') {
+            typingSound.currentTime = 0;
+            typingSound.play();
+          }
+          i++;
+          setTimeout(type, 20);
+        } else {
+          setTimeout(() => startTypingSequentially(index + 1), 500); // lanjut ke box berikutnya
+        }
+      }
+      type();
+    }
+
+    // mulai otomatis saat halaman dimuat
+    window.addEventListener("load", () => {
+      startTypingSequentially();
+    });
+  </script>
+</body>
+</html>

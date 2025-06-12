@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pengalaman Saya</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Merriweather', serif;
+    }
+
+    body {
+      background: 
+        linear-gradient(to bottom, rgba(27, 45, 78, 0.9), rgba(134, 197, 227, 0.9)),
+        url(image/background.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      color: #2d3436;
+    }
+
+    header {
+      background-color: #10214e;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 24px;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .intro-section {
+      text-align: center;
+      padding: 3rem 1rem 1rem;
+    }
+
+    .intro-section img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .intro-section h2 {
+      margin-top: 1rem;
+      font-size: 2rem;
+      color: #f0ebeb;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .box {
+      background-color: white;
+      color: #2d3436;
+      border-radius: 20px;
+      padding: 1.5rem;
+      width: 320px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      opacity: 0;
+      transform: translateX(60px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .box.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .box img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      object-fit: cover;
+    }
+
+    .box p {
+      font-size: 16px;
+      line-height: 1.6;
+      text-align: justify;
+    }
+
+    footer {
+      background-color: #10214e;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        margin-top: 10px;
+      }
+
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Putri Nabila</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="indexx.html">About</a>
+      <a href="indexxx.html">Experience</a>
+      <a href="indexxxx.html">Skill</a>
+      <a href="indexxxxx.html">Certificate</a>
+      <a href="indexxxxxx.html">Contact</a>
+    </nav>
+  </header>
+
+  <section id="experience" class="intro-section fade-in">
+    <img src="image/nabila.jpg" alt="Foto Profil">
+    <h2>Pengalaman Saya</h2>
+  </section>
+
+  <section class="container">
+    <div class="box">
+      <img src="image/paski.jpg" alt="Paskibra">
+      <p>
+        Salah satu perjalanan yang paling berkesan bagi saya adalah menjadi bagian dari tim Paskibra (2023–2025). 
+        Pengalaman ini mengajarkan saya tentang kedisiplinan, ketahanan, dan kepemimpinan.
+      </p>
+    </div>
+
+    <div class="box">
+      <p>
+        Selama saya bersekolah di SMKN 1 Nglegok, saya aktif mengikuti kegiatan akademik dan ekstrakurikuler 
+        yang memperkaya pengalaman belajar saya. Kegiatan-kegiatan ini telah membentuk kepercayaan diri saya 
+        dalam tugas-tugas teknis individu dan berbasis tim.
+      </p>
+    </div>
+
+    <div class="box">
+      <img src="image/bolot.jpg" alt="Komputer">
+      <p>
+        Di sisi akademis, saya memperoleh pengalaman langsung dalam proyek seperti: 
+        konfigurasi jaringan, pembuatan website dengan HTML & CSS, penyambungan kabel fiber optik, dan desain UI.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Putri Nabila. All rights reserved.
+  </footer>
+
+  <script>
+    // Animasi untuk judul (fade-in)
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const observerFade = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    });
+    fadeEls.forEach(el => observerFade.observe(el));
+
+    // Animasi untuk box (slide-in dari kanan)
+    const boxEls = document.querySelectorAll('.box');
+    const observerBox = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observerBox.unobserve(entry.target); // hanya animasi sekali
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+    boxEls.forEach(el => observerBox.observe(el));
+  </script>
+</body>
+</html>

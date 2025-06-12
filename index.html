@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Putri Nabila</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Merriweather', serif;
+    }
+
+    body {
+      background: linear-gradient(to bottom, #1b2d4e, #86c5e3);
+      color: #000;
+    }
+
+    nav {
+      background-color: #10214e;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #a7e2f1;
+    }
+
+    header {
+      position: relative;
+      text-align: center;
+      background: url(image/dinding.jpg) no-repeat center center/cover;
+      height: 300px;
+      opacity: 0.8;
+    }
+
+    .profile-pic {
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 5px solid #fff;
+      background-color: #fff;
+      z-index: 10;
+    }
+
+    .profile-pic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .intro {
+      text-align: center;
+      margin-top: 120px;
+      font-size: 2rem;
+      color: white;
+      animation: fadeIn 3s ease-in-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    .content-box {
+      background-color: rgba(255, 255, 255, 0.8);
+      margin: 2rem auto;
+      padding: 2rem;
+      border-radius: 15px;
+      max-width: 800px;
+      font-size: 1rem;
+    }
+
+    .typing-text {
+      border-right: .15em solid #333;
+      white-space: pre-line;
+      overflow: hidden;
+      font-size: 1rem;
+    }
+
+    footer {
+      background-color: #10214e;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    section {
+      padding-top: 60px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Putri Nabila</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="indexx.html">About</a></li>
+      <li><a href="indexxx.html">Experience</a></li>
+      <li><a href="indexxxx.html">Skill</a></li>
+      <li><a href="indexxxxx.html">Certificate</a></li>
+      <li><a href="indexxxxxx.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header id="home">
+    <div class="profile-pic">
+      <img src="image/nabila.jpg" alt="Putri Nabila">
+    </div>
+  </header>
+
+  <h1 class="intro">Halo Semuanya!</h1>
+
+  <section id="about">
+    <div class="content-box">
+      <div class="typing-text" id="typing"></div>
+    </div>
+  </section>
+
+  <section id="experience"></section>
+  <section id="skill"></section>
+  <section id="certificate"></section>
+  <section id="contact"></section>
+
+  <footer>
+    2025 Putri Nabila. All Rights Reserved
+  </footer>
+
+  <script>
+    const text = `Nama saya Putri Nabila,
+
+Saya dengan hangat menyambut Anda di portofolio digital saya. Saya adalah Pengembang Web yang bersemangat dan bertekad dengan minat yang kuat pada teknologi, desain, dan inovasi. Melalui platform ini, saya ingin berbagi perjalanan pribadi dan profesional saya di bidang Teknik Komputer dan Jaringan.
+
+Setiap baris kode yang saya tulis adalah langkah menuju membangun sesuatu yang bermakna baik itu halaman web sederhana atau konfigurasi jaringan yang kompleks. Saya percaya teknologi memiliki kekuatan untuk memecahkan masalah, menghubungkan orang, dan memicu kreativitas.
+
+Portofolio ini menyoroti keterampilan, pengalaman, dan aspirasi saya, semuanya dibentuk oleh perjalanan belajar saya di SMKN 1 Nglegok. Baik Anda sesama siswa, guru, atau seseorang dari industri, saya harap karya saya dapat menginspirasi Anda atau bahkan memicu kolaborasi di masa mendatang.`;
+
+    const typingElement = document.getElementById('typing');
+    let i = 0;
+
+    function typeWriter() {
+      if (i < text.length) {
+        typingElement.textContent += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 25);
+      }
+    }
+
+    setTimeout(typeWriter, 3000);
+  </script>
+</body>
+</html>
